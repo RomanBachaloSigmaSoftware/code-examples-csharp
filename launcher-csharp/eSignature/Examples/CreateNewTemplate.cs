@@ -4,7 +4,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class CreateNewTemplate
     {
@@ -189,9 +189,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         public static (bool createdNewTemplate, string templateId, string resultsTemplateName) CreateTemplate(string accessToken, string basePath, string accountId)
         {
             // Step 1. List templates to see if ours exists already
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            TemplatesApi templatesApi = new TemplatesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            TemplatesApi templatesApi = new TemplatesApi(apiClient);
             TemplatesApi.ListTemplatesOptions options = new TemplatesApi.ListTemplatesOptions();
             options.searchText = "Example Signer and CC template";
             EnvelopeTemplateResults results = templatesApi.ListTemplates(accountId, options);
