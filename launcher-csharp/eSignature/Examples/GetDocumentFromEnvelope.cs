@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using DocuSign.CodeExamples.Models;
 using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
-using eg_03_csharp_auth_code_grant_core.Models;
 
-
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class GetDocumentFromEnvelope
     {
@@ -22,9 +21,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         /// <returns>Stream containing the document, mimeType for this document and the document name</returns>
         public static (Stream, string, string) DownloadDocument(string accessToken, string basePath, string accountId, string envelopeId, List<EnvelopeDocItem> documents, string documentId)
         {
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
 
             // Step 1. EnvelopeDocuments::get.
             // Exceptions will be caught by the calling function
