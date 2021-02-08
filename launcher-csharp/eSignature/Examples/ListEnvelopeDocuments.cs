@@ -1,24 +1,12 @@
-﻿using DocuSign.eSign.Api;
+﻿using DocuSign.CodeExamples.Models;
+using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 using System.Collections.Generic;
 
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
-    public class EnvelopeDocItem
-    {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string DocumentId { get; set; }
-    }
-
-    public class EnvelopeDocuments
-    {
-        public string EnvelopeId { get; set; }
-        public List<EnvelopeDocItem> Documents { get; set; }
-    }
-
     public static class ListEnvelopeDocuments
     {
         /// <summary>
@@ -31,9 +19,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         /// <returns>An object containing information about all the documents in the envelopes</returns>
         public static (EnvelopeDocumentsResult results, EnvelopeDocuments envelopeDocuments) GetDocuments(string accessToken, string basePath, string accountId, string envelopeId)
         {
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
             EnvelopeDocumentsResult results = envelopesApi.ListDocuments(accountId, envelopeId);
 
             List<EnvelopeDocItem> envelopeDocItems = new List<EnvelopeDocItem>
