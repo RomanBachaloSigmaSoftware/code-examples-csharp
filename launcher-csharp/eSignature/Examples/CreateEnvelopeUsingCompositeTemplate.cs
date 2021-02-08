@@ -5,7 +5,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class CreateEnvelopeUsingCompositeTemplate
     {
@@ -225,9 +225,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
             string ccName, string accessToken, string basePath,
             string accountId, string item, string quantity, string returnUrl, string signerClientId, string templateId)
         {
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
 
             // Step 1. Make the envelope request body
             EnvelopeDefinition envelope = MakeEnvelope(signerEmail, signerName, ccEmail, ccName, item, quantity, signerClientId, templateId);
