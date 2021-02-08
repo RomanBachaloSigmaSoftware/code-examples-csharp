@@ -5,7 +5,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class EmbeddedSending
     {
@@ -180,9 +180,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         /// <returns>URL to embed in your application</returns>
         public static string SendEnvelopeUsingEmbeddedSending(string signerEmail, string signerName, string ccEmail, string ccName, string docDocx, string docPdf, string accessToken, string basePath,string accountId, string startingView, string returnUrl)
         {
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
 
             // Step 1. Make the envelope with "created" (draft) status            
             EnvelopeDefinition env = MakeEnvelope(signerEmail, signerName, ccEmail, ccName, docDocx, docPdf, "created");
