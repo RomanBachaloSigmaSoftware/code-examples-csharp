@@ -3,7 +3,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class SetUserGroupPermission
     {
@@ -20,9 +20,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
 		{
 
             // Construct your API headers
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            var groupsApi = new GroupsApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            var groupsApi = new GroupsApi(apiClient);
 
             // Construct your request body
             var editedGroup = new Group
