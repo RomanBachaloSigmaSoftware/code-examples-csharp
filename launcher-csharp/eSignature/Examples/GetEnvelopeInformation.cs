@@ -2,7 +2,7 @@
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class GetEnvelopeInformation
     {
@@ -16,10 +16,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         /// <returns>Object containing envelope information</returns>
         public static Envelope GetEnvelope(string accessToken, string basePath, string accountId, string envelopeId)
         {
-
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
             return envelopesApi.GetEnvelope(accountId, envelopeId);
         }
     }
