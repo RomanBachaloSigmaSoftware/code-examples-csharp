@@ -2,7 +2,7 @@
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class GetEnvelopeTabData
     {
@@ -17,11 +17,11 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         public static EnvelopeFormData GetEnvelopeFormData(string accessToken, string basePath, string accountId, string envelopeId)
         {
             // Construct your API headers
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
 
             // Call the eSignature REST API
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
             return envelopesApi.GetFormData(accountId, envelopeId);
         }
     }
