@@ -4,7 +4,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class SendBulkEnvelopes
     {
@@ -24,13 +24,13 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         /// <param name="signer2Email"> The cc recipient's email</param>
         /// <param name="docDocx">The document</param>
         /// <returns>The status of sending</returns>
-        public static BulkEnvelopeStatus GetStatus(string signer1Name, string signer1Email, string carbonCopy1Name, string carbonCopy1Email, string signer2Name, string signer2Email, string carbonCopy2Name, string carbonCopy2Email, string accessToken, string basePath, string accountId, string docDocx, string envelopeIdStamping, string emailSubject)
+        public static BulkSendBatchStatus GetStatus(string signer1Name, string signer1Email, string carbonCopy1Name, string carbonCopy1Email, string signer2Name, string signer2Email, string carbonCopy2Name, string carbonCopy2Email, string accessToken, string basePath, string accountId, string docDocx, string envelopeIdStamping, string emailSubject)
         {
             // Step 1. Construct your API headers
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
 
-            var bulkEnvelopesApi = new BulkEnvelopesApi(config);
+            var bulkEnvelopesApi = new BulkEnvelopesApi(apiClient);
 
             // Construct request body
             var sendingList = MakeBulkSendList(signer1Name,  signer1Email, carbonCopy1Name, carbonCopy1Email, signer2Name, signer2Email, carbonCopy2Name, carbonCopy2Email);
@@ -58,7 +58,7 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
                 Status = "created"
             };
 
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
             var envelopeResults = envelopesApi.CreateEnvelope(accountId, envelopeDefinition);
 
             // Step 4. Attach your bulk list ID to the envelope
@@ -124,7 +124,7 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
             System.Threading.Thread.Sleep(5000);
 
             // Step 7. Confirm successful batch send 
-            return bulkEnvelopesApi.Get(accountId, bulkRequestResult.BatchId);
+            return bulkEnvelopesApi.GetBulkSendBatchStatus(accountId, bulkRequestResult.BatchId);
         }
 
         private static BulkSendingList MakeBulkSendList(string signer1Name, string signer1Email, string carbonCopy1Name, string carbonCopy1Email, string signer2Name, string signer2Email, string carbonCopy2Name, string carbonCopy2Email)
