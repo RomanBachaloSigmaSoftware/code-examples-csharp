@@ -46,7 +46,7 @@ namespace DocuSign.CodeExamples.Controllers
 			var accountId = RequestItemsService.Session.AccountId; // Represents your {ACCOUNT_ID}
 
 			// Step 2. Construct your request
-			var accountRoleSettings = new AccountRoleSettingsExtension();
+			var accountRoleSettings = new CreatePermissionProfile.AccountRoleSettingsExtension();
 			accountRoleSettings.UseNewDocuSignExperienceInterface = "1";
 			accountRoleSettings.EnableSequentialSigningInterface = true.ToString();
 			accountRoleSettings.PowerFormRole = "admin";

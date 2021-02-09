@@ -1,5 +1,4 @@
-﻿using DocuSign.CodeExamples.Models;
-using DocuSign.eSign.Api;
+﻿using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
@@ -21,12 +20,18 @@ namespace eSignature.Examples
             // Construct your API headers
             var apiClient = new ApiClient(basePath);
             apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
-            AccountsApi accountsApi = new AccountsApi(apiClient);           
+            AccountsApi accountsApi = new AccountsApi(apiClient);
 
             var newPermissionProfile = new PermissionProfile(PermissionProfileName: profileName, Settings: accountRoleSettings);
 
             // Call the eSignature REST API
             return accountsApi.CreatePermissionProfile(accountId, newPermissionProfile);
+        }
+
+        public class AccountRoleSettingsExtension : AccountRoleSettings
+        {
+            [System.Runtime.Serialization.DataMember(Name = "signingUIVersion", EmitDefaultValue = false)]
+            public string SigningUiVersion { get; set; }
         }
     }
 }
