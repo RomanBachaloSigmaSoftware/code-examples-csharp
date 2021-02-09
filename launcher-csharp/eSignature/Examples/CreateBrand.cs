@@ -2,7 +2,7 @@
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class CreateBrand
     {
@@ -18,8 +18,8 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         public static BrandsResponse Create(string brandName, string defaultBrandLanguage, string accessToken, string basePath, string accountId)
         {
             // Construct your API headers
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
 
             // Construct your request body
             Brand newBrand = new Brand
@@ -29,7 +29,7 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
             };
 
             // Call the eSignature REST API
-            AccountsApi accountsApi = new AccountsApi(config);
+            AccountsApi accountsApi = new AccountsApi(apiClient);
 
             return accountsApi.CreateBrand(accountId, newBrand);
         }
