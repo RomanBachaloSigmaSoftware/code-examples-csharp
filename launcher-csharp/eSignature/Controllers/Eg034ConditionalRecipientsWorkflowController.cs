@@ -47,8 +47,9 @@ namespace DocuSign.CodeExamples.eSignature.Controllers
             try
             {
                 // Call the eSignature API
-                results = ConditionalRecipientsWorkflow.SendEnvelope(accessToken, basePath, accountId, recipient1,
-                    conditionalRecipient1, conditionalRecipient2);
+                results = ConditionalRecipientsWorkflow.SendEnvelope(accessToken, basePath, accountId, recipient1.Email,
+                    recipient1.Name, conditionalRecipient1.Email, conditionalRecipient1.Name,
+                    conditionalRecipient2.Email, conditionalRecipient2.Name);
             }
             catch (ApiException apiException)
             {

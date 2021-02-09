@@ -41,7 +41,7 @@ namespace DocuSign.CodeExamples.eSignature.Controllers
             string accessToken = RequestItemsService.User.AccessToken;
             string accountId = RequestItemsService.Session.AccountId;
 
-            var results = PauseSignatureWorkflow.PauseWorkflow(recipient1, recipient2, accessToken, basePath, accountId);
+            var results = PauseSignatureWorkflow.PauseWorkflow(recipient1.Email, recipient1.Name, recipient2.Email, recipient2.Name, accessToken, basePath, accountId);
 
             // Process results
             RequestItemsService.PausedEnvelopeId = results.EnvelopeId;

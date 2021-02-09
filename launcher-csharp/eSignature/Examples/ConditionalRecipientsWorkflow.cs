@@ -1,5 +1,4 @@
-﻿using DocuSign.CodeExamples.Models;
-using DocuSign.eSign.Api;
+﻿using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 using System.Collections.Generic;
@@ -18,14 +17,15 @@ namespace eSignature.Examples
         /// <param name="conditionalRecipient1">The first conditional signer</param>
         /// <param name="conditionalRecipient2">The second conditional signer</param>
         /// <returns>The update summary of the envelopes</returns>
-        public static EnvelopeSummary SendEnvelope(string accessToken, string basePath, string accountId, RecipientModel recipient1, RecipientModel conditionalRecipient1, RecipientModel conditionalRecipient2)
+        public static EnvelopeSummary SendEnvelope(string accessToken, string basePath, string accountId, string recipient1Email, string recipient1Name, string conditionalRecipient1Email, string conditionalRecipient1Name, string conditionalRecipient2Email, string conditionalRecipient2Name)
         {
             // Construct your API headers
             var apiClient = new ApiClient(basePath);
             apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
 
             // Construct request body
-            var envelope = MakeEnvelope(recipient1, conditionalRecipient1, conditionalRecipient2);
+            var envelope = MakeEnvelope(recipient1Email, recipient1Name, conditionalRecipient1Email,
+                conditionalRecipient1Name, conditionalRecipient2Email, conditionalRecipient2Name);
 
             // Call the eSignature REST API
             EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
@@ -33,7 +33,7 @@ namespace eSignature.Examples
             return envelopesApi.CreateEnvelope(accountId, envelope);
         }
 
-        private static EnvelopeDefinition MakeEnvelope(RecipientModel recipient1, RecipientModel conditionalRecipient1, RecipientModel conditionalRecipient2)
+        private static EnvelopeDefinition MakeEnvelope(string recipient1Email, string recipient1Name, string conditionalRecipient1Email, string conditionalRecipient1Name, string conditionalRecipient2Email, string conditionalRecipient2Name)
         {
             var document = new Document()
             {
@@ -53,8 +53,8 @@ namespace eSignature.Examples
                     GroupMessage = "Members of this group approve a workflow",
                     Recipients = new List<RecipientOption>()
                     {
-                        new RecipientOption(conditionalRecipient1.Email, conditionalRecipient1.Name, "signer2a", "Signer when not checked"),
-                        new RecipientOption(conditionalRecipient2.Email, conditionalRecipient2.Name, "signer2b", "Signer when not checked")
+                        new RecipientOption(conditionalRecipient1Email, conditionalRecipient1Name, "signer2a", "Signer when not checked"),
+                        new RecipientOption(conditionalRecipient2Email, conditionalRecipient2Name, "signer2b", "Signer when not checked")
                     }
                 },
                 Conditions = new List<ConditionalRecipientRuleCondition>
@@ -116,8 +116,8 @@ namespace eSignature.Examples
 
             var signer1 = new Signer()
             {
-                Email = recipient1.Email,
-                Name = recipient1.Name,
+                Email = recipient1Email,
+                Name = recipient1Name,
                 RecipientId = "1",
                 RoutingOrder = "1",
                 RoleName = "Purchaser",
