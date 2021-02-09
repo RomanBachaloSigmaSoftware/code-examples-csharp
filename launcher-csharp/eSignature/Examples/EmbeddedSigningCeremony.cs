@@ -4,7 +4,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     /// <summary>
     /// Used to generate an envelope and allow user to sign it directly from the app without having to open an email.
@@ -146,9 +146,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
             EnvelopeDefinition envelope = MakeEnvelope(signerEmail, signerName, signerClientId, docPdf);
 
             // Step 2. Call DocuSign to create the envelope                   
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
             EnvelopeSummary results = envelopesApi.CreateEnvelope(accountId, envelope);
             string envelopeId = results.EnvelopeId;
 
