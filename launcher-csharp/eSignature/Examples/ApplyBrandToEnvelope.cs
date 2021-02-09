@@ -4,7 +4,7 @@ using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public class ApplyBrandToEnvelope
     {
@@ -22,14 +22,14 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         public static EnvelopeSummary CreateEnvelopeWithBranding(string signerEmail, string signerName, string brandId, string accessToken, string basePath, string accountId, string status, string docPdf)
         {
             // Construct your API headers
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
 
             // Construct your request body
             EnvelopeDefinition env = CreateEnvelope(signerEmail, signerName, brandId, status, docPdf);
 
             // Call the eSignature REST API
-            EnvelopesApi envelopesApi = new EnvelopesApi(config);
+            EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
 
             return envelopesApi.CreateEnvelope(accountId, env);
         }
