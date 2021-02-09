@@ -1,7 +1,7 @@
 ﻿using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class DeletePermission
     {
@@ -15,9 +15,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
 		public static void DeletePermissionProfile(string permissionProfileId, string accessToken, string basePath, string accountId)
 		{
 			// Construct your API headers
-			var config = new Configuration(new ApiClient(basePath));
-			config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-			AccountsApi accountsApi = new AccountsApi(config);
+			var apiClient = new ApiClient(basePath);
+			apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+			AccountsApi accountsApi = new AccountsApi(apiClient);
 			// Call the eSignature REST API
 			accountsApi.DeletePermissionProfile(accountId, permissionProfileId);
 		}
