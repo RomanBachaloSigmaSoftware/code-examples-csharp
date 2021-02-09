@@ -46,17 +46,9 @@ namespace DocuSign.CodeExamples.Controllers
             }
 
             string redirectUrl = CreateEnvelopeUsingCompositeTemplate.CreateEnvelopeFromCompositeTemplate(signerEmail,
-                                                                                                          signerName,
-                                                                                                          ccEmail,
-                                                                                                          ccName,
-                                                                                                          accessToken,
-                                                                                                          basePath,
-                                                                                                          accountId,
-                                                                                                          item,
-                                                                                                          quantity,
-                                                                                                          dsReturnUrl,
-                                                                                                          signerClientId, 
-                                                                                                          RequestItemsService.TemplateId);
+                signerName, ccEmail, ccName, accessToken, basePath, accountId, item, quantity, dsReturnUrl,
+                signerClientId, RequestItemsService.TemplateId);
+
             return Redirect(redirectUrl);
         }
     }

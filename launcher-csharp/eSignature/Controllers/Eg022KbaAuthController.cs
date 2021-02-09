@@ -39,8 +39,7 @@ namespace DocuSign.CodeExamples.Controllers
             var accountId = RequestItemsService.Session.AccountId; // Represents your {ACCOUNT_ID}
 
             string envelopeId = RecipientAuthKBA.CreateEnvelopeWithRecipientUsingKBAAuth(signerEmail, signerName,
-                                                                                         accessToken, basePath,
-                                                                                         accountId);
+                accessToken, basePath, accountId);
 
             ViewBag.h1 = "Envelope sent";
             ViewBag.message = "The envelope has been created and sent!<br />Envelope ID " + envelopeId + ".";

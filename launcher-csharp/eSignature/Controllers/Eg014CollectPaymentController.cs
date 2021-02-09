@@ -74,9 +74,8 @@ namespace DocuSign.CodeExamples.Controllers
             };
 
             string envelopeId = CollectPaymentInEnvelope.CreateEnvelopeWithPayment(signerEmail, signerName, ccEmail,
-                                                                                   ccName, accessToken, basePath,
-                                                                                   accountId, RequestItemsService.Status,
-                                                                                   paymentDetails);
+                ccName, accessToken, basePath, accountId, RequestItemsService.Status, paymentDetails);
+
             Console.WriteLine("Envelope was created.EnvelopeId " + envelopeId);
             ViewBag.h1 = "Envelope sent";
             ViewBag.message = "The envelope has been created and sent!<br/>Envelope ID " + envelopeId + ".";

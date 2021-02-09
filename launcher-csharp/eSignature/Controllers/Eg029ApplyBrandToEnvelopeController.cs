@@ -59,8 +59,7 @@ namespace DocuSign.CodeExamples.Controllers
             var accountId = RequestItemsService.Session.AccountId; // Represents your {ACCOUNT_ID}
 
             var results = ApplyBrandToEnvelope.CreateEnvelopeWithBranding(signerEmail, signerName, brandId, accessToken,
-                                                                          basePath, accountId,
-                                                                          RequestItemsService.Status, Config.docPdf);
+                basePath, accountId, RequestItemsService.Status, Config.docPdf);
             
             ViewBag.h1 = "Envelope sent";
             ViewBag.message = "The envelope has been created and sent!<br />Envelope ID " + results.EnvelopeId + ".";

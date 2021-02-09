@@ -43,17 +43,8 @@ namespace DocuSign.CodeExamples.Controllers
                 return Redirect("/ds/mustAuthenticate");
             }
 
-            var redirectUrl = EmbeddedSending.SendEnvelopeUsingEmbeddedSending(signerEmail,
-                                                                               signerName,
-                                                                               ccEmail,
-                                                                               ccName,
-                                                                               Config.docDocx,
-                                                                               Config.docPdf,
-                                                                               accessToken,
-                                                                               basePath,
-                                                                               accountId,
-                                                                               startingView,
-                                                                               dsReturnUrl);
+            var redirectUrl = EmbeddedSending.SendEnvelopeUsingEmbeddedSending(signerEmail, signerName, ccEmail, ccName,
+                Config.docDocx, Config.docPdf, accessToken, basePath, accountId, startingView, dsReturnUrl);
 
             Console.WriteLine("Sender view URL: " + redirectUrl);
             return Redirect(redirectUrl);

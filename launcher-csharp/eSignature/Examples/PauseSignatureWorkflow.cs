@@ -2,7 +2,6 @@
 using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
-using System;
 using System.Collections.Generic;
 
 namespace eSignature.Examples
@@ -10,15 +9,13 @@ namespace eSignature.Examples
     public class PauseSignatureWorkflow
     {
         /// <summary>
-        /// Applies a brand to the envelope
+        /// Pauses workflow of signature
         /// </summary>
-        /// <param name="brandId">The brand ID</param>
         /// <param name="accessToken">Access Token for API call (OAuth)</param>
         /// <param name="basePath">BasePath for API calls (URI)</param>
         /// <param name="accountId">The DocuSign Account ID (GUID or short version) for which the APIs call would be made</param>
-        /// <param name="signerEmail">Email address for the signer</param>
-        /// <param name="signerName">Full name of the signer</param>
-        /// <param name="docPdf">String of bytes representing the document (pdf)</param>
+        /// <param name="recipient1">The first recipient</param>
+        /// <param name="recipient2">The second recipient</param>
         /// <returns>The summary of the envelopes</returns>
         public static EnvelopeSummary PauseWorkflow(RecipientModel recipient1, RecipientModel recipient2, string accessToken, string basePath, string accountId)
         {

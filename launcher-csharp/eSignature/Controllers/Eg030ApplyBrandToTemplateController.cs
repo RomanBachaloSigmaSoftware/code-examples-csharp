@@ -62,9 +62,7 @@ namespace DocuSign.CodeExamples.Controllers
 
             // Call the eSignature 
             var results = ApplyBrandToTemplate.CreateEnvelopeFromTemplateWithBrand(signerEmail, signerName, ccEmail,
-                                                                                   cCName, brandId, templateId,
-                                                                                   accessToken, basePath, accountId,
-                                                                                   RequestItemsService.Status);
+                cCName, brandId, templateId, accessToken, basePath, accountId, RequestItemsService.Status);
 
             ViewBag.h1 = "Envelope sent";
             ViewBag.message = "The envelope has been created and sent!<br />Envelope ID " + results.EnvelopeId + ".";

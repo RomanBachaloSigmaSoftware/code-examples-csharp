@@ -212,10 +212,12 @@ namespace eSignature.Examples
         public static string SendRequestViaSMS(string accessToken, string basePath, string accountId, string signerEmail, string signerName, string signerCountryCode, string signerPhoneNumber, string ccEmail, string ccName, string ccCountryCode, string ccPhoneNumber, string docDocx, string docPdf, string envStatus)
         {
             EnvelopeDefinition env = MakeEnvelope(signerEmail, signerName, signerCountryCode, signerPhoneNumber, ccEmail,
-                                                  ccName, ccCountryCode, ccPhoneNumber, docDocx, docPdf, envStatus);
+                ccName, ccCountryCode, ccPhoneNumber, docDocx, docPdf, envStatus);
+
             var apiClient = new ApiClient(basePath);
             apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
             EnvelopesApi envelopesApi = new EnvelopesApi(apiClient);
+
             EnvelopeSummary results = envelopesApi.CreateEnvelope(accountId, env);
             return results.EnvelopeId;
         }

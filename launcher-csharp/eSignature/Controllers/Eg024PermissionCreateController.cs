@@ -78,7 +78,8 @@ namespace DocuSign.CodeExamples.Controllers
 			try
 			{
 				// Step 3. Call the eSignature REST API
-				var result = CreatePermissionProfile.Create(permissionProfileModel.ProfileName, accountRoleSettings, accessToken, basePath, accountId);
+				var result = CreatePermissionProfile.Create(permissionProfileModel.ProfileName,
+                    accountRoleSettings, accessToken, basePath, accountId);
 
 				ViewBag.h1 = "The permission profile was updated";
 				ViewBag.message = $"The permission profile was created!<br />Permission profile ID: {result.PermissionProfileId}, name:{result.PermissionProfileName}.";

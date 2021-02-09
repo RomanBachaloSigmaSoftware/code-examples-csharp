@@ -47,11 +47,9 @@ namespace DocuSign.CodeExamples.Controllers
             var accountId = RequestItemsService.Session.AccountId; // Represents your {ACCOUNT_ID}
 
             var results = SetTemplateTabValues.CreateEnvelopeFromTempalteAndUpdateTabValues(signerEmail, signerName,
-                                                                                            ccEmail, ccName,
-                                                                                            signerClientId, accessToken,
-                                                                                            basePath, accountId,
-                                                                                            RequestItemsService.TemplateId,
-                                                                                            dsReturnUrl, dsPingUrl);
+                ccEmail, ccName, signerClientId, accessToken, basePath, accountId, RequestItemsService.TemplateId,
+                dsReturnUrl, dsPingUrl);
+
             RequestItemsService.EnvelopeId = results.Item1;
             return Redirect(results.Item2);
         }

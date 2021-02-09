@@ -43,7 +43,7 @@ namespace DocuSign.CodeExamples.eSignature.Controllers
 
             // Call the eSignature API
             var results = UnpauseSignatureWorkflow.UnpauseWorkflow(accessToken, basePath, accountId,
-                                                                   RequestItemsService.PausedEnvelopeId);
+                RequestItemsService.PausedEnvelopeId);
 
             // Process results
             ViewBag.h1 = "The envelope was updated successfully!";

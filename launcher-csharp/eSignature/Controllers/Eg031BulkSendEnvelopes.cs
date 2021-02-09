@@ -44,9 +44,8 @@ namespace DocuSign.CodeExamples.Controllers
                 var envelopeIdStamping = "true";
                 var emailSubject = "Please sign this document sent from the C# SDK";
                 var status = SendBulkEnvelopes.GetStatus(signer1.Name, signer1.Email, carbonCopy1.Name,
-                                                         carbonCopy1.Email, signer2.Name, signer2.Email,
-                                                         carbonCopy2.Name, carbonCopy2.Email, accessToken, basePath,
-                                                         accountId, Config.docDocx, envelopeIdStamping, emailSubject);
+                    carbonCopy1.Email, signer2.Name, signer2.Email, carbonCopy2.Name, carbonCopy2.Email, accessToken,
+                    basePath, accountId, Config.docDocx, envelopeIdStamping, emailSubject);
 
                 ViewBag.h1 = "Bulk send envelope was successfully performed!";
                 ViewBag.message = $@"Bulk request queued to {status.Queued} user lists.";

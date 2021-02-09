@@ -42,15 +42,8 @@ namespace DocuSign.CodeExamples.Controllers
             }
 
             (bool statusOk, string envelopeId, string errorCode, string errorMessage, WebException webEx) =
-                CreateEnvelopeWithMultipleDocumentTypes.CreateAndSendEnvelope(signerEmail,
-                                                                              signerName,
-                                                                              ccEmail,
-                                                                              ccName,
-                                                                              Config.docDocx,
-                                                                              Config.docPdf,
-                                                                              accessToken,
-                                                                              basePath,
-                                                                              accountId);
+                CreateEnvelopeWithMultipleDocumentTypes.CreateAndSendEnvelope(signerEmail, signerName, ccEmail, ccName,
+                    Config.docDocx, Config.docPdf, accessToken, basePath, accountId);
 
             if (statusOk)
             {

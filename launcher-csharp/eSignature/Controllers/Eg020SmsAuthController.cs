@@ -47,8 +47,7 @@ namespace DocuSign.CodeExamples.Controllers
             var accountId = RequestItemsService.Session.AccountId; // Represents your {ACCOUNT_ID}
 
             string envelopeId = RecipientAuthSMS.CreateEnvelopeWithRecipientUsingSMSAuth(signerEmail, signerName,
-                                                                                         accessToken, basePath,
-                                                                                         accountId, phoneNumber);
+                accessToken, basePath, accountId, phoneNumber);
 
             ViewBag.h1 = "Envelope sent";
             ViewBag.message = "The envelope has been created and sent!<br />Envelope ID " + envelopeId + ".";

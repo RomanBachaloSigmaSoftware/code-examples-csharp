@@ -27,7 +27,6 @@ namespace DocuSign.CodeExamples.Controllers
             var accountId = RequestItemsService.Session.AccountId;
             var envelopeId = RequestItemsService.EnvelopeId;
 
-
             bool tokenOk = CheckToken(3);
             if (!tokenOk)
             {

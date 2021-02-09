@@ -36,16 +36,9 @@ namespace DocuSign.CodeExamples.Controllers
             var basePath = RequestItemsService.Session.BasePath + "/restapi";
             var accountId = RequestItemsService.Session.AccountId;
 
-            var envelopeId = SingingViaEmail.SendEnvelopeViaEmail(signerEmail,
-                                                                  signerName,
-                                                                  ccEmail,
-                                                                  ccName,
-                                                                  accessToken,
-                                                                  basePath,
-                                                                  accountId,
-                                                                  Config.docDocx,
-                                                                  Config.docPdf,
-                                                                  "Sent");
+            var envelopeId = SingingViaEmail.SendEnvelopeViaEmail(signerEmail, signerName, ccEmail, ccName, accessToken,
+                basePath, accountId, Config.docDocx, Config.docPdf, RequestItemsService.Status);
+
             ViewBag.h1 = "Envelope sent";
             ViewBag.message = "The envelope has been created and sent!<br />Envelope ID " + envelopeId + ".";
             return View("example_done");

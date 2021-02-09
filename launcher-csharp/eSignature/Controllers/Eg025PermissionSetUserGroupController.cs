@@ -74,8 +74,8 @@ namespace DocuSign.CodeExamples.Controllers
             var accessToken = RequestItemsService.User.AccessToken; // Represents your {ACCESS_TOKEN}
             var accountId = RequestItemsService.Session.AccountId; // Represents your {ACCOUNT_ID}
 
-            var result = SetUserGroupPermission.GetGroupInformation(permissionProfileId, userGroupId, accessToken,
-                                                                    basePath, accountId);
+            var result = SetUserGroupPermission.GetGroupInformation(permissionProfileId, userGroupId, 
+                accessToken, basePath, accountId);
 
             var errorDetails = result.Groups.FirstOrDefault()?.ErrorDetails;
 
