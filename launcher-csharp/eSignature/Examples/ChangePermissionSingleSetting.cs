@@ -4,7 +4,7 @@ using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 
 
-namespace eg_03_csharp_auth_code_grant_core.Examples
+namespace eSignature.Examples
 {
     public static class ChangePermissionSingleSetting
     {
@@ -19,9 +19,9 @@ namespace eg_03_csharp_auth_code_grant_core.Examples
         public static PermissionProfile UpdatePermissionProfile(string profileId, string accessToken, string basePath, string accountId)
         {
             // Construct your API headers
-            var config = new Configuration(new ApiClient(basePath));
-            config.AddDefaultHeader("Authorization", "Bearer " + accessToken);
-            AccountsApi accountsApi = new AccountsApi(config);
+            var apiClient = new ApiClient(basePath);
+            apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
+            AccountsApi accountsApi = new AccountsApi(apiClient);
 
             // Construct the request body
             var permission = accountsApi.ListPermissions(accountId).PermissionProfiles.
