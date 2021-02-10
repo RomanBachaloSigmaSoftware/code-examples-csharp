@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
-using static eSignature.Examples.ListEnvelopeDocuments;
 
 namespace eSignature.Examples
 {
@@ -19,7 +18,7 @@ namespace eSignature.Examples
         /// <param name="documents">Object containing all documents information</param>
         /// <param name="documentId">The required document ID</param>
         /// <returns>Stream containing the document, mimeType for this document and the document name</returns>
-        public static (Stream, string, string) DownloadDocument(string accessToken, string basePath, string accountId, string envelopeId, List<EnvelopeDocItem> documents, string documentId)
+        public static (Stream, string, string) DownloadDocument(string accessToken, string basePath, string accountId, string envelopeId, List<ListEnvelopeDocuments.EnvelopeDocItem> documents, string documentId)
         {
             var apiClient = new ApiClient(basePath);
             apiClient.Configuration.DefaultHeader.Add("Authorization", "Bearer " + accessToken);
@@ -30,7 +29,7 @@ namespace eSignature.Examples
             Stream results = envelopesApi.GetDocument(accountId, envelopeId, documentId);
 
             // Step 2. Look up the document from the list of documents 
-            EnvelopeDocItem docItem = documents.FirstOrDefault(d => documentId.Equals(d.DocumentId));
+            ListEnvelopeDocuments.EnvelopeDocItem docItem = documents.FirstOrDefault(d => documentId.Equals(d.DocumentId));
             // Process results. Determine the file name and mimetype
             string docName = docItem.Name;
             bool hasPDFsuffix = docName.ToUpper().EndsWith(".PDF");
