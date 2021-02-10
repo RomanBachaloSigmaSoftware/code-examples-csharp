@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using DocuSign.CodeExamples.Models;
 using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
+using static eSignature.Examples.ListEnvelopeDocuments;
 
 namespace eSignature.Examples
 {
@@ -17,7 +17,7 @@ namespace eSignature.Examples
         /// <param name="accountId">The DocuSign Account ID (GUID or short version) for which the APIs call would be made</param>
         /// <param name="envelopeId">The required envelopeId</param>
         /// <param name="documents">Object containing all documents information</param>
-        /// <param name="docSelect">Specific documentId for the document to download</param>
+        /// <param name="documentId">The required document ID</param>
         /// <returns>Stream containing the document, mimeType for this document and the document name</returns>
         public static (Stream, string, string) DownloadDocument(string accessToken, string basePath, string accountId, string envelopeId, List<EnvelopeDocItem> documents, string documentId)
         {

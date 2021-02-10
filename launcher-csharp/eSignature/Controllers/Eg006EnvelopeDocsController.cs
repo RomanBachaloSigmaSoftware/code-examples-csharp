@@ -3,6 +3,7 @@ using DocuSign.CodeExamples.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using eSignature.Examples;
+using System.Linq;
 
 namespace DocuSign.CodeExamples.Controllers
 {
@@ -39,14 +40,21 @@ namespace DocuSign.CodeExamples.Controllers
                 return Redirect("/ds/mustAuthenticate");
             }
 
-            (EnvelopeDocumentsResult results, EnvelopeDocuments envelopeDocuments) =
+            (EnvelopeDocumentsResult results, ListEnvelopeDocuments.EnvelopeDocuments envelopeDocuments) =
                 ListEnvelopeDocuments.GetDocuments(accessToken, basePath, accountId, envelopeId);
+
+            var mappedEnvelopeDocuments = new EnvelopeDocuments
+            {
+                EnvelopeId = envelopeDocuments.EnvelopeId,
+                Documents = envelopeDocuments.Documents.Select(docItem => new EnvelopeDocItem { DocumentId = docItem.DocumentId, Name = docItem.Name, Type = docItem.Type })
+                                                       .ToList()
+            };
 
             // Save the envelopeId and its list of documents in the session so
             // they can be used in example 7 (download a document)
-            RequestItemsService.EnvelopeDocuments = envelopeDocuments;
+            RequestItemsService.EnvelopeDocuments = mappedEnvelopeDocuments;
         
-            ViewBag.envelopeDocuments = envelopeDocuments;
+            ViewBag.envelopeDocuments = mappedEnvelopeDocuments;
             ViewBag.h1 = "List envelope documents result";
             ViewBag.message = "Results from the EnvelopeDocuments::list method:";
             ViewBag.Locals.Json = JsonConvert.SerializeObject(results, Formatting.Indented);

@@ -1,5 +1,4 @@
-﻿using DocuSign.CodeExamples.Models;
-using DocuSign.eSign.Api;
+﻿using DocuSign.eSign.Api;
 using DocuSign.eSign.Client;
 using DocuSign.eSign.Model;
 using System.Collections.Generic;
@@ -9,6 +8,19 @@ namespace eSignature.Examples
 {
     public static class ListEnvelopeDocuments
     {
+        public class EnvelopeDocItem
+        {
+            public string Name { get; set; }
+            public string Type { get; set; }
+            public string DocumentId { get; set; }
+        }
+
+        public class EnvelopeDocuments
+        {
+            public string EnvelopeId { get; set; }
+            public List<EnvelopeDocItem> Documents { get; set; }
+        }
+
         /// <summary>
         /// Gets a list of all the documents for a specific envelope
         /// </summary>

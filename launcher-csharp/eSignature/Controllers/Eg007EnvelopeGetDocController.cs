@@ -2,6 +2,7 @@
 using DocuSign.CodeExamples.Models;
 using Microsoft.AspNetCore.Mvc;
 using eSignature.Examples;
+using System.Linq;
 
 namespace DocuSign.CodeExamples.Controllers
 {
@@ -27,7 +28,9 @@ namespace DocuSign.CodeExamples.Controllers
             var accountId = RequestItemsService.Session.AccountId;
             var envelopeId = RequestItemsService.EnvelopeId;
             // documents data for the envelope. See example EG006
-            List<EnvelopeDocItem> documents = RequestItemsService.EnvelopeDocuments.Documents;
+            List<ListEnvelopeDocuments.EnvelopeDocItem> documents =
+                RequestItemsService.EnvelopeDocuments.Documents.Select(docItems => 
+                    new ListEnvelopeDocuments.EnvelopeDocItem{ DocumentId = docItems.DocumentId, Name = docItems.Name, Type = docItems.Type }).ToList();
 
             bool tokenOk = CheckToken(3);
             if (!tokenOk)
