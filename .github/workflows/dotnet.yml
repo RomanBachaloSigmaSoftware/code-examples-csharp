@@ -1,0 +1,21 @@
+name: .NET
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  setup:
+    runs-on: [windows-latest]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.7.2
+      with:
+        dotnet-version: '3.1.x'
+      
+    - name: Build Solution
+      run:  dotnet build -warnaserror --no-incremental
