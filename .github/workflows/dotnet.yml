@@ -18,4 +18,4 @@ jobs:
         dotnet-version: '3.1.x'
       
     - name: Build Solution
-      run:  dotnet build -warnaserror --no-incremental
+      run:  dotnet build --no-incremental
