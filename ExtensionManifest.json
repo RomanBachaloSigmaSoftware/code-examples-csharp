@@ -248,7 +248,7 @@
             "number": "36",
             "name": "Create Clickwraps",
             "description": "This example shows how to create a clickwrap.",
-            "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/controllers-rewriting/launcher-csharp/eSignature/Examples/EmbeddedSigningCeremony.cs",
+            "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/click-controllers-update/launcher-csharp/Click/Examples/CreateClickwrap.cs",
             "method": "CreateClickwrap"
         },
         {
@@ -283,7 +283,7 @@
             "number": "41",
             "name": "Create a room with data",
             "description": "This example creates a room using specified data.",
-            "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/controllers-rewriting/launcher-csharp/eSignature/Examples/EmbeddedSigningCeremony.cs",
+            "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/rooms-controllers-update/launcher-csharp/Rooms/Examples/CreateRoomWithData.cs",
             "method": "CreateRoom"
         },
         {
