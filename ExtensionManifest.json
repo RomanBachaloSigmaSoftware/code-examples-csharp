@@ -243,6 +243,41 @@
             "description": "This example demonstrates how to send a signature request for a signer (and CC) to read and sign via an SMS message.",
             "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/controllers-rewriting/launcher-csharp/eSignature/Examples/SMSDelivery.cs",
             "method": "SendRequestViaSMS"
+        },
+        {
+          "number": "36",
+          "name": "Create Clickwraps",
+          "description": "This example shows how to create a clickwrap.",
+          "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/tree/click-controllers-update/launcher-csharp/Click/Examples/CreateClickwrap.cs",
+          "method": "CreateClickwrap"
+        },
+        {
+          "number": "37",
+          "name": "Activate Clickwrap",
+          "description": "This example shows how to activate a clickwrap.",
+          "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/tree/click-controllers-update/launcher-csharp/Click/Examples/ActivateClickwrap.cs",
+          "method": "UpdateClickwrapVersion"
+        },
+        {
+          "number": "38",
+          "name": "Clickwrap Versioning",
+          "description": "This example shows how to create a new clickwrap version.",
+          "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/tree/click-controllers-update/launcher-csharp/Click/Examples/CreateNewClickwrapVersion.cs",
+          "method": "UpdateClickwrapVersion"
+        },
+        {
+          "number": "39",
+          "name": "Retrieve Clickwraps",
+          "description": "This example shows how to get a list of clickwraps.",
+          "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/tree/click-controllers-update/launcher-csharp/Click/Examples/RetrieveClickwraps.cs",
+          "method": "GetClickwraps"
+        },
+        {
+          "number": "40",
+          "name": "Get Clickwrap Responses",
+          "description": "This example shows how to get clickwrap responses.",
+          "source": "https://raw.githubusercontent.com/docusign/code-examples-csharp/tree/click-controllers-update/launcher-csharp/Click/Examples/GetClickwrapAgreements.cs",
+          "method": "GetClickwrapAgreements"
         }
     ],
     "postAddOpenURI": "https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-code-grant"
