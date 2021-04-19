@@ -4,8 +4,8 @@
       "id": "csharp",
       "alias": "C#",
       "description": "Used for .Net projects",
-      "configurationManifestURI": "https://raw.githubusercontent.com/docusign/eg-03-csharp-auth-code-grant-core/master/ConfigurationManifest.json",
-      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/docusign/eg-03-csharp-auth-code-grant-core/master/ExtensionManifest.json"
+      "configurationManifestURI": "https://github.com/RomanBachaloSigmaSoftware/code-examples-csharp/edit/master/ConfigurationManifest.json",
+      "addCodeExamplesManifestURI": "https://github.com/RomanBachaloSigmaSoftware/code-examples-csharp/edit/master/ExtensionManifest.json"
     },
     {
       "id": "javascript",
