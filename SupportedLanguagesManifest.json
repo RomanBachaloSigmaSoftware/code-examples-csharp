@@ -1,0 +1,18 @@
+{
+  "supportedLanguages":[
+    {
+      "id": "csharp",
+      "alias": "C#",
+      "description": "Used for .Net projects",
+      "configurationManifestURI": "https://raw.githubusercontent.com/docusign/eg-03-csharp-auth-code-grant-core/master/ConfigurationManifest.json",
+      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/docusign/eg-03-csharp-auth-code-grant-core/master/ExtensionManifest.json"
+    },
+    {
+      "id": "javascript",
+      "alias": "JavaScript",
+      "description": "Used for Node.js",
+      "configurationManifestURI": "https://requestloggerbin.herokuapp.com/bin/c6c68da0-c2aa-4814-b579-821659ef5ae3",
+      "addCodeExamplesManifestURI": "https://requestloggerbin.herokuapp.com/bin/73d2fdf5-b679-4c3c-81e7-8cff88fd10c6"
+    }
+  ]
+}
