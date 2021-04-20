@@ -316,7 +316,7 @@
       "number": "40",
       "name": "Get Clickwrap Responses",
       "description": "This example shows how to get clickwrap responses.",
-      "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/launcher-csharp/Click/Examples/GetClickwrapAgreements.cs",
+      "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/launcher-csharp/Click/Examples/GetClickwrapResponses.cs",
       "method": "GetClickwrapAgreements",
       "apiType": "Click"
     },
