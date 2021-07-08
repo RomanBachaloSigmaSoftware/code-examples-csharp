@@ -13,6 +13,13 @@
       "description": "Used for Node.js",
       "configurationManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ConfigurationManifestJS.json",
       "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ExtensionManifestJS.json"
+    },
+    {
+      "id": "php",
+      "alias": "PHP",
+      "description": "Used for PHP projects",
+      "configurationManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ConfigurationManifestPHP.json",
+      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ExtensionManifestPHP.json"
     }
   ]
 }
