@@ -2,16 +2,12 @@
   "authenticationTypes": [
     {
       "name": "AuthCodeGrant",
-      "displayName": "Authorization Code Grant JS",
+      "displayName": "Authorization Code Grant PHP",
       "description": "Choose this option if each user who sends DocuSign envelopes using \nthe eSignature API will login to DocuSign during each session.",
       "shortDescription": "Users will login to DocuSign during each session to send envelopes to eSignature API",
    "sources":[
     {
-       "source":"https://raw.githubusercontent.com/docusign/code-examples-node/master/lib/common/config.js",
-       "folder":"DocuSign"
-    },
-    {
-       "source":"https://raw.githubusercontent.com/docusign/code-examples-node/master/lib/common/DSAuthCodeGrant.js",
+       "source":"https://raw.githubusercontent.com/docusign/code-examples-php/master/src/Services/CodeGrantService.php",
        "folder":"DocuSign"
     }
    ],
@@ -97,11 +93,7 @@
       "description": "Choose this option if a single login will be used to send all envelopes.",
        "sources":[
     {
-       "source":"https://raw.githubusercontent.com/docusign/code-examples-node/master/lib/common/config.js",
-       "folder":"DocuSign"
-    },
-    {
-       "source":"https://raw.githubusercontent.com/docusign/code-examples-node/master/lib/common/DSJwtAuth.js",
+       "source":"https://raw.githubusercontent.com/docusign/code-examples-php/master/src/Services/JWTService.php",
        "folder":"DocuSign"
     }
    ],
@@ -175,20 +167,28 @@
   ],
   "packages": [
     {
-         "name":"docusign-esign",
-         "version":"5.9.0-rc1"
+         "name":"twig/twig",
+         "version":"^2.0"
       },
       {
-         "name":"fs",
-         "version":"0.0.1-security"
+         "name":"league/oauth2-client",
+         "version":"^2.4"
       },
       {
-         "name":"moment",
-         "version":"^2.24.0"
+         "name":"ext-json",
+         "version":"*"
       },
       {
-         "name":"passport",
-         "version":"^0.4.0"
+         "name":"guzzlehttp/guzzle",
+         "version":"^6.5"
+      },
+      {
+         "name":"firebase/php-jwt",
+         "version":"^5.0"
+      },
+      {
+         "name":"mashape/unirest-php",
+         "version":"^3.0"
       }
   ],
   "supportedAPIs": [
@@ -197,8 +197,8 @@
       "displayName": "ESignature",
       "packages": [
         {
-          "name": "DocuSign.eSign.dll",
-          "version": "5.3.1-rc"
+          "name": "docusign/esign-client",
+          "version": "^6.2.0-rc"
         }
       ],
       "scopes": [
@@ -210,8 +210,8 @@
       "displayName": "Rooms",
       "packages": [
         {
-          "name": "DocuSign.Rooms",
-          "version": "1.0.0"
+          "name": "docusign/rooms-client",
+          "version": "^1.1.0-rc"
         }
       ],
       "scopes": [
@@ -231,7 +231,7 @@
       "displayName": "Click",
       "packages": [
         {
-          "name": "DocuSign.Click",
+          "name": "docusign/click-client",
           "version": "1.0.0"
         }
       ],
@@ -245,8 +245,8 @@
       "displayName": "Monitor",
       "packages": [
         {
-          "name": "docusign-monitor",
-          "version": "^1.0.1-alpha"
+          "name": "docusign/monitor-client",
+          "version": "1.0.0"
         }
       ]
     }
