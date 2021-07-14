@@ -4,15 +4,15 @@
       "id": "csharp",
       "alias": "C#",
       "description": "Used for .Net projects",
-      "configurationManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ConfigurationManifest.json",
-      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ExtensionManifest.json"
+      "configurationManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/extensions/ConfigurationManifest.json",
+      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/extensions/ExtensionManifest.json"
     },
     {
       "id": "javascript",
       "alias": "JavaScript",
       "description": "Used for Node.js",
-      "configurationManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ConfigurationManifestJS.json",
-      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/ExtensionManifestJS.json"
+      "configurationManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/extensions/ConfigurationManifestJS.json",
+      "addCodeExamplesManifestURI": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-csharp/master/extensions/ExtensionManifestJS.json"
     },
     {
       "id": "php",
