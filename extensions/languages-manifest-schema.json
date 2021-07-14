@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SupportedLanguagesManifest",
+  "type": "object",
+  "required": ["supportedLanguages"],
+  "properties": {
+    "supportedLanguages": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/SupportedLanguage" }
+    }
+  },
+  "definitions": {
+    "SupportedLanguage": {
+      "properties": {
+        "id": {
+          "enum": [
+            "csharp",
+            "javascript",
+            "java",
+            "php",
+            "ruby",
+            "python"
+          ],
+          "type": "string"
+        },
+    "alias": {
+      "type": "string"
+    },
+        "description": {
+          "type": "string"
+        },
+        "configurationManifestURI": {
+          "type": "string"
+        },
+        "addCodeExamplesManifestURI": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+    "configurationManifestURI",
+    "addCodeExamplesManifestURI"
+      ],
+      "type": "object"
+    }
+  }
+}

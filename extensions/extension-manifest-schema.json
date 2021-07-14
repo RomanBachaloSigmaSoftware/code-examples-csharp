@@ -1,0 +1,48 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AddCodeExamplesManifest",
+  "type": "object",
+  "required": ["codeExamples"],
+  "properties": {
+    "codeExamples": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/CodeExample" }
+    },
+    "postAddOpenURI": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "CodeExample": {
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "apiType": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "name",
+        "description",
+        "source",
+        "method",
+        "apiType"
+      ],
+      "type": "object"
+    }
+  }
+}
