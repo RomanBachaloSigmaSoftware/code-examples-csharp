@@ -4,7 +4,7 @@
       "number": "1",
       "name": "Embedded Signing Ceremony",
       "description": "This example sends an envelope, and then uses an embedded signing ceremony for the first signer. With embedded signing, the DocuSign signing ceremony is initiated from your website.",
-      "source": "https://raw.githubusercontent.com/docusign/code-examples-node/master/eg001EmbeddedSigning.js",
+      "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-php-demo/master/src/Services/Examples/eSignature/CreateAnEnvelopeService.php",
       "method": "SendEnvelopeForEmbeddedSigning",
       "apiType": "ESignature"
     },
@@ -12,7 +12,7 @@
       "number": "2",
       "name": "Send an envelope with a remote (email) signer and cc recipient",
       "description": "The envelope includes a pdf, Word, and HTML document. Anchor text (AutoPlace) is used to position the signing fields in the documents.",
-      "source": "https://raw.githubusercontent.com/docusign/code-examples-node/master/lib/eSignature/eg002SigningViaEmail.js",
+      "source": "https://raw.githubusercontent.com/RomanBachaloSigmaSoftware/code-examples-php-demo/master/src/Services/Examples/eSignature/SigningViaEmailService.php",
       "method": "SendEnvelopeViaEmail",
       "apiType": "ESignature"
     },
