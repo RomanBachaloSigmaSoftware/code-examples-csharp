@@ -109,7 +109,7 @@
     },
     {
       "name": "JWT",
-      "displayName": "JSON Web Token (JWT) JS",
+      "displayName": "JSON Web Token (JWT) PHP",
       "description": "Choose this option if a single login will be used to send all envelopes.",
       "sources": [
         {
